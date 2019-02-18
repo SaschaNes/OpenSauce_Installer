@@ -75,14 +75,12 @@ public class InstallerFrame extends javax.swing.JFrame {
             jProgressBar1.setValue(i);
             try {
                 TimeUnit.MILLISECONDS.sleep(100);
-            } catch (InterruptedException e){
+            } catch (InterruptedException e) {
                 System.err.println("reverv");
             }
         }
     }//GEN-LAST:event_formMouseMoved
 
-
-    
     /**
      * @param args the command line arguments
      */

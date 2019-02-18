@@ -7,7 +7,6 @@ package OpenSauce;
 
 import javax.swing.JOptionPane;
 
-
 /**
  *
  * @author neste
