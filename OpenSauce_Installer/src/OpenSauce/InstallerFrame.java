@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package windemo;
+package OpenSauce;
 
 import java.util.concurrent.TimeUnit;
 import javax.swing.JOptionPane;
