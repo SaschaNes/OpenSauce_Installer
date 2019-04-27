@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+    ****************************************************************************
+    *WORK IS STILL IN PROGRESS                                                 *
+    ****************************************************************************
+*/
 package OpenSauce;
 
 import java.util.concurrent.TimeUnit;
@@ -14,9 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class InstallerFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InstallerFrame
-     */
+
     public InstallerFrame() {
         initComponents();
     }
@@ -70,6 +68,7 @@ public class InstallerFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    // i don't know for now, will get into it
     private void formMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseMoved
         for (int i = 0; i < 100; i++) {
             jProgressBar1.setValue(i);
@@ -81,9 +80,7 @@ public class InstallerFrame extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_formMouseMoved
 
-    /**
-     * @param args the command line arguments
-     */
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

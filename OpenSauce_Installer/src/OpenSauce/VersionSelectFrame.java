@@ -1,21 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package OpenSauce;
 
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author nessi
- */
+
 public class VersionSelectFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form InsFrame
-     */
+    
     public VersionSelectFrame() {
         initComponents();
     }
@@ -29,34 +20,29 @@ public class VersionSelectFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1 = new javax.swing.JComboBox<String>();
-        jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        versionCombobox = new javax.swing.JComboBox<>();
+        versionTextLabel = new javax.swing.JLabel();
+        closeButton = new javax.swing.JButton();
+        nextButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Express", "Mini", "Full" }));
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        versionCombobox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Express", "Mini", "Full" }));
+
+        versionTextLabel.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
+        versionTextLabel.setText("What version do you want?");
+
+        closeButton.setText("Close");
+        closeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                closeButtonActionPerformed(evt);
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 20)); // NOI18N
-        jLabel1.setText("What version do you want?");
-
-        jButton1.setText("Close");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        nextButton.setText("Next");
+        nextButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
-            }
-        });
-
-        jButton2.setText("Next");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                nextButtonActionPerformed(evt);
             }
         });
 
@@ -68,30 +54,30 @@ public class VersionSelectFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(92, 92, 92)
-                        .addComponent(jLabel1))
+                        .addComponent(versionTextLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(140, 140, 140)
-                        .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(versionCombobox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(49, 49, 49)))
                 .addGap(99, 99, 99))
             .addGroup(layout.createSequentialGroup()
                 .addGap(22, 22, 22)
-                .addComponent(jButton1)
+                .addComponent(closeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
+                .addComponent(nextButton)
                 .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(54, 54, 54)
-                .addComponent(jLabel1)
+                .addComponent(versionTextLabel)
                 .addGap(53, 53, 53)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(versionCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(closeButton)
+                    .addComponent(nextButton))
                 .addGap(17, 17, 17))
         );
 
@@ -99,26 +85,31 @@ public class VersionSelectFrame extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+    // before exit the program asks the user if he really want's to quit the installer
+    private void closeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeButtonActionPerformed
+        String[] options = {"Yes", "No"};
+        int exitQuestion = JOptionPane.showOptionDialog(null, "Do you really want to cance the installation?", "Information", JOptionPane.DEFAULT_OPTION, JOptionPane.QUESTION_MESSAGE, null, options, options[1]);
+        if (exitQuestion == 0) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_closeButtonActionPerformed
 
-    }//GEN-LAST:event_jComboBox1ActionPerformed
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        Object yet = jComboBox1.getSelectedItem();
+    // closes VersionSelectFrame and open AGBFrame
+    private void nextButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextButtonActionPerformed
         this.dispose();
-        AGBFrame yet2 = new AGBFrame();
-        yet2.pack();
-        yet2.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+        AGBFrame nextWindowAGBFrame = new AGBFrame();
+        nextWindowAGBFrame.pack();
+        nextWindowAGBFrame.setVisible(true);
+    }//GEN-LAST:event_nextButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
+    // returns Object version for tee InstallerFrame
+    // is static so it can be called everywhere
+    public static Object getYet() {
+        Object version = versionCombobox.getSelectedItem();
+        return version;
+    }
+
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -153,9 +144,9 @@ public class VersionSelectFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton closeButton;
+    private javax.swing.JButton nextButton;
+    private static javax.swing.JComboBox<String> versionCombobox;
+    private javax.swing.JLabel versionTextLabel;
     // End of variables declaration//GEN-END:variables
 }
